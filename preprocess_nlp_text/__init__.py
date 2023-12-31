@@ -59,11 +59,11 @@ def remove_stopwords(x):
 def make_base(x):
     return utils._make_base(x)
 
-def remove_commonwords(x):
-    return utils._remove_commonwords(x)
+def remove_commonwords(x, n=20):
+    return utils._remove_commonwords(x, n=20)
 
-def remove_rarewords(x):
-    return utils._remove_rarewords(x)
+def remove_rarewords(x, n=20):
+    return utils._remove_rarewords(x, n=20)
 
 def spelling_correction(x):
     return utils._spelling_correction(x)
