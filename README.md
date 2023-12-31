@@ -4,7 +4,7 @@ This python package is prepred by Saji Gera
 
 Install
 
-`pip install git+ssh//git@github.com/sajigera/preprocess_nlp_text.git`
+`pip install git+ssh://git@github.com/sajigera/preprocess_nlp_text.git`
 
 Uninstall
 
