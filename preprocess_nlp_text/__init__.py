@@ -1,6 +1,6 @@
 from preprocess_nlp_text import utils
 
-__version__ = '0.01'
+__version__ = '0.03'
 
 def get_wordcounts(x):
     return utils._get_wordcounts(x)
