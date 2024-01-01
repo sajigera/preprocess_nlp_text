@@ -42,7 +42,7 @@ def _get_uppercase_counts(x):
     return len([i for i in x.split() if i.isupper()])
 
 
-def _get_cont_expn(x):
+def _cont_expn(x):
     contractions = { 
         "ain't": "am not",
         "aren't": "are not",
@@ -189,21 +189,25 @@ def _make_base(text):
         
     return ' '.join(base_list)
 
-def _remove_commonwords(x, n=20):
+def _get_value_counts(df, col_name):
     
-    full_text = x.split()
-    word_freq = pd.Series(full_text.split()).value_counts()
-    fn_words = word_freq[:n]
+    fulltext = ' '.join(df[col_name])
+    fulltext = fulltext.split()
+    freq = pd.Series(fulltext).value_counts()
+    return freq
+    
+
+def _remove_commonwords(x,freq ,n=20):
+    
+    fn_words = freq[:n]
     
     x = ' '.join([i for i in x.split() if i not in fn_words])
     
     return x
 
-def _remove_rarewords(x, n=20):
+def _remove_rarewords(x, freq,n=20):
     
-    full_text = x.split()
-    word_freq = pd.Series(full_text.split()).value_counts()
-    fn_words = word_freq.tail(n)
+    fn_words = freq.tail(n)
     
     x = ' '.join([i for i in x.split() if i not in fn_words])
     
